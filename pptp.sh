@@ -78,7 +78,7 @@ option /etc/ppp/pptpd-options
 logwtmp
 bcrelay eth0
 localip $PIP
-remoteip 192.168.10.100-199
+remoteip 192.168.100.100-200
 netmask 255.255.255.0
 END
 			echo ""
@@ -98,10 +98,10 @@ END
 			# Setting up forwarding rules
 			echo "Setting up forwarding rules"
 			iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-			iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j SNAT --to $PIP
+			iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -j SNAT --to $PIP
 			iptables -I INPUT -p tcp --dport 1723 -j ACCEPT
 			iptables -I INPUT -p udp --dport 1723 -j ACCEPT
-			iptables -I FORWARD -s 192.168.10.0/24 -j ACCEPT
+			iptables -I FORWARD -s 192.168.100.0/24 -j ACCEPT
 			iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 			iptables -A INPUT -i eth0 -p gre -j ACCEPT
 			iptables -A FORWARD -i ppp+ -o eth0 -j ACCEPT
