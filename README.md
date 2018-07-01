@@ -6,7 +6,7 @@ This script will let you setup your own PPTP VPN server in no more than a minute
 
 Run the script and follow the assistant:
 
-`wget https://raw.githubusercontent.com/tankibaj/pptp/master/pptp.sh && bash pptp.sh`
+`wget https://raw.githubusercontent.com/BHAYFRON/pptp/master/pptp.sh && bash pptp.sh`
 
 Once it ends, you can run it again to add more users or uninstall PPTP.
 
